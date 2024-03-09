@@ -1,0 +1,416 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@150&display=swap');
+
+
+
+
+.nav-buttons{
+
+    margin-left:50%;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Poppins', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; 
+}
+
+/*BEST SELLER COLOR*/
+h1{
+   font-size: 1.2rem;
+   font-weight: 500;
+   
+}
+
+h2{
+    font-size : 1.2rem;
+    font-weight: 700;
+}
+
+h3{
+    font-size: 2rem;
+    font-weight: 800;
+}
+
+h4{
+    font-size: 1.2rem;
+    font-weight : 600;
+}
+
+h5{
+    font-size : 3.8rem;
+    font-weight: 600;
+}
+
+h6{
+
+    color: #dbdbdb;
+}
+
+
+
+button {
+    font-size: 0.9rem;
+    font-weight: 600;
+    outline: none;
+    border: 10px solid transparent;
+    background-color: #000000;
+    cursor: pointer;
+    color: #ffffff;
+    text-transform: uppercase;
+    transition: 0.5s ease;
+    border-radius: 10px;
+}
+
+button:hover{  /* FOR THE BUTTON HOVER */
+    background-color: #c7c7c7;
+}
+
+button span {
+    font-size: 0.8rem; /* Adjusted font size for the text */
+}
+
+
+
+
+
+
+.navbar{
+    font-size: 16px;
+    padding-top: 1rem !important;
+    padding-bottom: 1rem !important;
+    top: 0;
+    left: 0; 
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1)
+    
+}
+
+/* to access the buttons in nav*/
+
+.navbar-light .navbar-nav .nav-link{
+    padding: 0 15px;
+    color: #000000;
+    transition: 0.4s ease;
+}
+
+/*hover over the buttons*/
+
+.navbar-light .navbar-nav .nav-link:hover,
+.navbar i:hover,
+.navbar-light .navbar-nav .nav-link.active
+.navbar i:hover{
+    color: rgb(189, 189, 189);
+
+}
+
+#home{
+    background-image: url('../imgs/Background1.jpg.png');
+    width: 100%;
+    height: 100vh;
+    background-size: cover;
+    background-position-x: 70px;
+    background-position-y: 40px;
+    display: flex; 
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+.horizontal-line {
+    border: 5px solid #ccc; /* Define the appearance of the horizontal line */
+    margin: 25px 0; /* Add  margin above and below the line */
+}
+
+
+
+#home span{
+    color:rgb(247, 133, 150)
+}
+#home {
+    width: 100%;
+    height: 100vh;
+    display: flex; 
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    border: 10px solid #f4f4f4; /* Add a border with 2px width and gray color */
+    padding-top: 0; /* No padding at the top */
+    padding-bottom: 0; /* No padding at the bottom */
+    padding-left: 20px; /* Horizontal padding before images */
+    padding-right: 20px; /* Horizontal padding after images */
+    
+}
+
+
+#home p {
+   
+    font-size: 1.7rem; /* Adjust font size as needed */
+}
+
+#new .one img{
+    width: 60%;
+    height: 60%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+}
+
+#new .one{
+    position: relative;
+}
+
+
+.horizontal-line {
+    border: 5px solid #ccc; /*  appearance of the horizontal line */
+    margin: -30px auto 75px; /* Adjust the margin to position  */
+}
+
+
+.one {
+    display: flex;
+    justify-content: center;
+}
+
+.product-card {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 10px;
+    margin: 10px;
+    width: 100%;
+    max-width: 300px; /* Adjust the maximum width as needed */
+    text-align: center;
+    display: flex; /* Added */
+    flex-direction: column; /* Added */
+}
+
+.product-card img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 1px; /* Add some spacing between the image and text */
+}
+
+.product-card .details {
+    margin-top: auto; /* Push details to the bottom */
+    text-align: left; /* Align text to the left */
+    display: flex; /* Added */
+    justify-content: space-between; /* Added */
+}
+
+
+/*PRODUCT HOVER*/
+.product{
+    cursor : pointer;
+    margin-bottom: 2rem;
+
+}
+
+.product img{
+    transition: 0.3s all;;
+}
+
+.product:hover img{
+    opacity : 0.7;
+}
+
+/* BANNER DESIGN */
+#banner {
+    background-image: url('../imgs/Screenshot_20.png'); 
+    width: 100%;
+    height: 100vh;
+    background-size: cover;
+    background-position: center 80px;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+#banner h1{
+    color: #000000;
+}
+
+#banner button{
+    color:rgb(255, 255, 255)
+
+}
+
+footer{
+    background-color:#f8f9fa
+    
+}
+
+footer li{
+    padding-bottom: 4px;
+}
+ footer a{
+    font-size: 1rem;
+    color: #000000;
+    text-decoration: none;
+ }
+
+ footer a:hover {
+    color: rgb(147, 147, 148);
+    
+
+ }
+
+ footer .copyright a{
+    color: #383636;
+    height: 40px;
+    width: 40px;
+
+ }
+
+ footer .copyright img{
+    width: 70%;
+ }
+
+ .logo {
+    width: 150px;
+    height: 35px;
+ }
+
+ .copyright .container {
+    padding-top: 65px; /* Adjust the value to move the text further down */
+
+}
+
+
+footer {
+    text-align: left;
+}
+
+footer .container, footer .container .row {
+    margin: 0; /* Remove all margins */
+    max-width: none; /* Remove max-width restriction */
+}
+
+footer .container .row .footer-one {
+    width: auto; 
+    flex: 0 0 auto; 
+}
+
+.single-product input {
+    width: 50px;
+    height: 40px;
+    padding-left: 10px;
+    font-size: 16px;
+    margin-right: 10px;
+}
+
+.single-product input:focus {
+    outline: none;
+}
+
+
+/*CART*/
+
+.cart table{
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.cart .product-info{
+    display:flex;
+    flex-wrap: wrap;
+
+}
+
+.cart th{
+    text-align: left;
+    padding: 5px 10px;
+    color:#fff;
+    background-color:#000000;
+}
+
+.cart td{
+    padding: 10px 20px;
+}
+
+.cart td img{
+    width: 80px;
+    height: 80px;
+    margin-right: 10px;
+
+}
+
+.cart td input {
+    width: 40px;
+    height: 30px;
+    padding: 5px;
+}
+
+.cart td a{
+    color:rgb(0, 0, 0)
+    
+}
+
+.cart .remove-btn{
+    color:rgb(80, 78, 78);
+    text-decoration: none;
+    font-size: 15px;
+}
+
+.cart .edit-btn{
+    color: rgb(78, 78, 78);
+    text-decoration: none;
+    font-size : 14px;
+}
+
+/*REMOVE SPACE BETWEEN*/
+
+.cart .product-info{
+    margin: 3px;
+
+}
+
+.cart-total {
+    display: flex;
+    justify-content: flex-end;
+}
+
+
+.cart-total table {
+    width: 100%;
+    max-width: 500px;
+    border-top: 3px solid #000000;
+}
+
+td:last-child{
+    text-align: right;
+}
+
+th:last-child{
+    text-align: right;
+
+}
+
+/*SHIFTING BUTTON TO THE RIGHT SIDE */
+
+
+
+.checkout-container{
+    display: flex;
+    justify-content: flex-end;
+    
+}
+
+.checkout-btn{
+    display: flex;
+    justify-content: flex-end;
+    background-color: #000000;
+    color: #ffffff;
+}
+
+/*CONTACT US DESIGN*/
+
+#contact span {
+    color: #ff0202;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 20px;
+}
