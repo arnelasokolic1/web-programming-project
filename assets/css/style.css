@@ -414,3 +414,73 @@ th:last-child{
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     font-size: 20px;
 }
+
+
+/* DESIGN FOR THE ACCOUNT PAGE */
+.account-form {
+    width: 50%;
+    margin: 35px auto;
+    text-align: center;
+    padding: 20px;
+}
+
+#account-form-input{
+    margin: 5px auto;
+}
+
+#account-form #change-pass-btn{
+    color: #fff;
+    background-color: rgb(0, 0, 0);
+    margin-top: 10px;
+}
+
+#account-info #orders-btn, #logout-btn{
+    color: #000000;
+    text-decoration: none;
+}
+
+/* LOGIN DESIGN */
+#login-form {
+    width: 500px;
+    margin: 50px auto;
+    text-align: center;
+    padding: 40px;
+    border: 1px solid #000000; 
+    border-radius: 5px; 
+    background-color: #ededed; 
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); 
+}
+
+/* Adjust the position of the button */
+#login-btn {
+    margin-top: 10px; 
+    background-color: #000000;
+    width: 200px;
+}
+
+/* REGISTER DESIGN */
+#register-form {
+    width: 500px; 
+    margin: 50px auto;
+    text-align: center;
+    padding: 40px;
+    border: 1px solid #000000; 
+    border-radius: 5px; 
+    background-color: #ededed; 
+    box-shadow: 0px 0px 10px rgba(6, 5, 5, 0.1); 
+}
+
+/* Adjust the position of the button */
+#register-btn {
+    margin-top: 10px;
+    background-color: #000000;
+    width: 200px;
+    color: #ffffff; 
+}
+
+
+/* Adjust the position of the login link */
+#login-url {
+    margin-top: 10px;
+    color: rgb(0, 0, 0);
+}
