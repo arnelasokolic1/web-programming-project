@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, inital-scale=1.0">
+    <title>Register</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    
+    <script defer src="https://use.fontawesome.com/releases/v5.15.4/js/all.js" integrity="sha384-rOA1PnstxnOBLzCLMcre8ybwbTmemjzdNlILg8O7z1lUkLXozs4DHonlDtnE7fpc" crossorigin="anonymous"></script>
+   
+    <link rel="stylesheet" href="assets/css/style.css"/>
+    <style>
+        /* REGISTER DESIGN */
+        #register-form {
+            width: 500px;
+            margin: 50px auto;
+            text-align: center;
+            padding: 40px;
+            border: 5px solid #000000; 
+            border-radius: 19px; 
+            background-color: #ffffff; 
+            box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.1); 
+        }
+
+        /* Adjust the position of the button */
+        #register-btn {
+            margin-top: 10px; 
+            background-color: #000000;
+            border: none;
+            width: 200px;
+            transition: background-color 0.3s ease;
+            border-radius: 10px;
+            color: white; /* Text color to white */
+        }
+
+        #register-btn:hover {
+            background-color: #c7c7c7;
+        }
+
+        /* Styling for the login link */
+        #login-url {
+            color: black; 
+            text-decoration: none; 
+            font-size: 14px; 
+            margin-top: 10px; 
+            display: block; 
+        }
+
+        #login-url:hover {
+            color: #000000; 
+            text-decoration: underline; 
+        }
+    </style>
+</head>
+<body>
+    
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+        <a class="navbar-brand" href="#">Admin Dashboard</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Dashboard</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Account</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Add Product</a>
+                </li>
+               
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- REGISTER -->
+<section class="my-5 py-5">
+    <div class="container text-center mt-3 pt-5">
+        <h2 class="form-weight-bold">REGISTER</h2>
+        <hr class="mx-auto">
+    </div>
+
+    <div class="mx-auto container">
+        <form id="register-form">
+            <div class="form-group">
+                <label>Name</label>
+                <input type="text" class="form-control" id="register-name" name="name" placeholder="Name" required/>
+            </div>
+
+            <div class="form-group">
+                <label>Email</label>
+                <input type="text" class="form-control" id="register-email" name="Email" placeholder="Email" required/>
+            </div>
+
+            <div class="form-group">
+                <label>Password</label>
+                <input type="password" class="form-control" id="register-password" name="password" placeholder="Password" required/>
+            </div>
+
+            <div class="form-group">
+                <label>Confirm Password</label>
+                <input type="password" class="form-control" id="register-confirm-password" name="confirm-password" placeholder="Confirm Password" required/>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" class="btn" id="register-btn" value="Register"/>
+            </div>
+
+            <div class="form-group">
+                <a id="login-url" href="admin-login.html">Already have an account? Login</a>
+            </div>
+        </form>
+    </div>
+</section>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+</body>
+
+</html>
