@@ -1,0 +1,21 @@
+[
+    {
+        "name": "John Doe",
+        "email": "john.doe@example.com",
+        "phone": "+1234567890",
+        "address": "123 Main Street, City, Country"
+    },
+    {
+        "name": "Jane Smith",
+        "email": "jane.smith@example.com",
+        "phone": "+1987654321",
+        "address": "456 Elm Street, City, Country"
+    },
+    {
+        "name": "Michael Johnson",
+        "email": "michael.johnson@example.com",
+        "phone": "+1122334455",
+        "address": "789 Oak Street, City, Country"
+    }
+   
+]
