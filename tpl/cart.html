@@ -23,7 +23,12 @@
             max-width: 800px;
             width: 100%;
             text-align: center;
-            margin-top: 50px; 
+            margin-top: 50px;
+            position: fixed; 
+            left: 50%; 
+            transform: translate(-50%, -50%); 
+            z-index: 999; /* Ensure it's on top of other content */
+            background-color: #fff;
         }
         .cart-item {
             display: flex;
@@ -70,9 +75,9 @@
         <table class="table">
             <thead>
                 <tr>
-                    <th scope="col">Product Name</th>
-                    <th scope="col">Price</th>
-                    <th scope="col">Action</th>
+                    <th scope="col">PRODUCT</th>
+                    <th scope="col">PRICE</th>
+                    <th scope="col">ACTION</th>
                 </tr>
             </thead>
             <tbody>
