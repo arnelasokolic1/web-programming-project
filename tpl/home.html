@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script defer src="https://use.fontawesome.com/releases/v5.15.4/js/all.js" integrity="sha384-rOA1PnstxnOBLzCLMcre8ybwbTmemjzdNlILg8O7z1lUkLXozs4DHonlDtnE7fpc" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <style>
+    /* Centering All Perfumes header */
+#all-perfumes {
+    text-align: center;
+    margin-bottom: 50px; 
+}
+
+/* Styling each product box */
+.product-box {
+    border: 4px solid #ececec; 
+    border-radius: 25px; 
+    margin-bottom: 20px;
+    height: 550px;
+}
+
+.product-box img {
+    border-top-left-radius: 60px;
+    border-top-right-radius: 60px;
+    width: 100%;
+    height: 300px; 
+    object-fit: cover;
+}
+
+.product-box .card-body {
+    padding: 15px;
+    min-height: 200px;
+}
+
+.product-box .card-title {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.product-box .card-text {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.product-box .card-text.price {
+    font-size: 20px; 
+    font-weight: bold;
+}
+
+/* Customizing the Buy button */
+.buy-btn {
+    background-color: #000 !important; /* Black background */
+    color: #fff; /* White text color */
+    border-radius: 15px; /* Round corners */
+    padding: 10px 20px; /* Padding */
+    border-color: #000;
+    transition: background-color 0.3s ease; /* Smooth transition */
+}
+
+.buy-btn:hover {
+    background-color: #b8b6b6 !important; 
+}
+
+.nav-buttons {
+    margin-left: 50%;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+/*FONT SIZE OF H*/
+h1 {
+    font-size: 1.2rem;
+    font-weight: 460;
+}
+
+h2 {
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+h3 {
+    font-size: 2rem;
+    font-weight: 800;
+}
+
+h4 {
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+h5 {
+    font-size: 3.8rem;
+    font-weight: 500;
+}
+
+h6 {
+    color: #dbdbdb;
+}
+.horizontal-line {
+    border: 5px solid #ccc; /* horizontal line */
+    margin: -30px auto 75px; 
+}
+    </style>
+</head>
+<body>
+    <!-- HOME SECTION -->
+    <section id="home">
+        <div class="container">
+            <h5><span>MY WAY</span> EAU DE PARFUM</h5>
+            <h3>GIORGIO ARMANI BEST SELLER</h3>
+            <p>Experience The <span>ESSENCE</span></p>
+        </div>
+    </section>
+
+   <!--BRANDS-->
+    <section id="another-section" class="container">
+        <div class="row">
+            <img class="img-fluid col-lg-3 col-md-6 col-sm-12" src="assets/imgs/Logo.3.jpg" alt="Image 1">
+            <img class="img-fluid col-lg-3 col-md-6 col-sm-12" src="assets/imgs/Logo.8.jpg" alt="Image 2">
+            <img class="img-fluid col-lg-3 col-md-6 col-sm-12" src="assets/imgs/Logo.10.jpg" alt="Image 3">
+            <img class="img-fluid col-lg-3 col-md-6 col-sm-12" src="assets/imgs/logo.12.jpg" alt="Image 4">
+        </div>
+    </section>
+
+    <!-- Horizontal Line -->
+    <hr class="horizontal-line">
+
+    <!-- ALL PERFUMES SECTION -->
+    <section id="all-perfumes" class="container">
+        <h3>ALL PRODUCTS</h3>
+    </section>
+
+    <!-- Product Rows -->
+    <div class="container" id="perfumes-container">
+        
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        // Function to fetch JSON data and update HTML content
+        function fetchAndRenderProducts() {
+            $.ajax({
+                url: 'database/all_perfumes.json',
+                dataType: 'json',
+                success: function(data) {
+                    var container = $('#perfumes-container');
+                    container.empty(); // Clear existing content before updating
+    
+                    // Loop through all products in the JSON file
+                    $.each(data, function(index, perfume) {
+                        // Check if the current row is filled with four products, if not, create a new row
+                        if (index % 4 === 0) {
+                            container.append('<div class="row justify-content-center"></div>'); // Append a new row with centered columns
+                        }
+    
+                        var currentRow = container.find('.row').last(); // Select the last row
+                        var productHtml = '<div class="col-lg-3 col-md-6 col-sm-12">';
+                        productHtml += '<div class="card product-box" data-id="' + perfume.id + '">'; // Include id here
+                        productHtml += '<img src="' + perfume.image + '" class="card-img-top" alt="' + perfume.name + '" width="300" height="300">'; // Set width and height attributes
+                        productHtml += '<div class="card-body">';
+                        productHtml += '<h5 class="card-title">' + perfume.name + '</h5>';
+                        productHtml += '<h1 class="card-text">' + perfume.description + '</h1>';
+                        productHtml += '<p class="card-text price">' + perfume.price + '</p>';
+                        productHtml += '<button class="btn btn-primary buy-btn" data-name="' + perfume.name + '">Add To Cart</button>'; // Add Buy button
+                        productHtml += '</div></div></div>';
+    
+                        currentRow.append(productHtml); // Append the product to the current row
+                    });
+                    // Save the HTML content to local storage to prevent reloading when navigating back
+                    localStorage.setItem('perfumesData', container.html());
+                }
+            });
+        }
+    
+        // Check if local storage has data to prevent reloading when navigating back
+        const perfumesData = localStorage.getItem('perfumesData');
+        if (perfumesData) {
+            $('#perfumes-container').html(perfumesData);
+        } else {
+            $(document).ready(function() {
+                fetchAndRenderProducts(); // Fetch and render products when the document is ready
+            });
+        }
+        
+        // Attach click event handler to the Buy button
+        $(document).on('click', '.buy-btn', function() {
+            var productName = $(this).data('name');
+            var productId = $(this).closest('.product-box').data('id');
+            var confirmed = confirm('Are you sure that you want to put the "' + productName + '" in cart?');
+            if (confirmed) {
+                alert('"' + productName + '" added to cart successfully.');
+            }
+        });
+    </script>
+    
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+</body>
+</html>

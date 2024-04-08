@@ -1,0 +1,64 @@
+[
+
+    {
+        "id": 1,
+        "name": "SI FLORI EAU DE PARFUM ",
+        "description": "GIORGIO ARMANI WOMAN 30ML",
+        "price": "133KM",
+        "image": "assets/imgs/Slika6.jpg"
+    },
+    {
+        "id": 2,
+        "name": "ACQUA DI GIO HOMME PARFUM ",
+        "description": "GIORGIO ARMANI MAN 30ML",
+        "price": "179KM",
+        "image": "assets/imgs/Slika1.jpg"
+    },
+
+    {
+        "id": 3,
+        "name": "MY WAY EAU DE PARFUM ",
+        "description": "GIORGIO ARMANI WOMAN 30ML",
+        "price": "163KM",
+        "image": "assets/imgs/Slika7.jpg"
+    },
+    {
+        "id": 4,
+        "name": "LUNA ROSSA BLACK EAU DE PARFUM MAN",
+        "description": "PRADA MAN 100ML",
+        "price": "267KM",
+        "image": "assets/imgs/Slika8.jpg"
+    },
+  
+    {
+        "id": 5,
+        "name": "ETERNITY AROMATIC ESSENCE FOR HIM EAU DE PARFUM",
+        "description": "CALVIN KLEIN MAN 50ML ",
+        "price": "169KM",
+        "image": "assets/imgs/Slika9.jpg"
+    },
+
+    {
+        "id": 6,
+        "name": "ACQUA DI GIO HOMME PROFONDO EAU DE PARFUM",
+        "description": " GIORGIO ARMANI MAN 30ML ",
+        "price": "153KM",
+        "image": "assets/imgs/Slika12.jpg"
+    },
+    {
+        "id": 7,
+        "name": "SI INTENSE EAU DE PARFUM",
+        "description": "GIORGIO ARMANI WOMAN 30ML",
+        "price": "182KM",
+        "image": "assets/imgs/Slika13.jpg"
+    },
+    {
+        "id": 8,
+        "name": "MY BURBERRY EAU DE PARFUM FRAGRANCE FOR WOMAN",
+        "description": "BURBERRY WOMAN 30ML",
+        "price": "161KM",
+        "image": "assets/imgs/Slika14.jpg"
+    }
+   
+   
+]

@@ -1,0 +1,27 @@
+[
+    {
+        "id": 1,
+        "name": "Arnela Sokolić",
+        "email": "arnela@example.com",
+        "role": "Admin"
+    },
+    {
+        "id": 2,
+        "name": "Arnela Sokolić",
+        "email": "arnela@example.com",
+        "role": "Moderator"
+    },
+    {
+        "id": 3,
+        "name": "Arnela Sokolić",
+        "email": "arnela@example.com",
+        "role": "Admin"
+    },
+    {
+        "id": 4,
+        "name": "Arnela Sokolić",
+        "email": "arnela@example.com",
+        "role": "Moderator"
+    }
+
+]

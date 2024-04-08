@@ -1,0 +1,31 @@
+[
+    {
+        "message_id": 1,
+        "email": "user1@example.com",
+        "customer_name": "UserName1",
+        "customer_surname": "UserSurname1",
+        "message": "Satisfied with the quaility."
+    },
+    {
+        "message_id": 2,
+        "email": "user2@example.com",
+        "customer_name": "UserName2",
+        "customer_surname": "UserSurname2",
+        "message": "Keep up the good work!"
+    },
+    {
+        "message_id": 3,
+        "email": "user3@example.com",
+        "customer_name": "UserName3",
+        "customer_surname": "UserSurname3",
+        "message": "Hello!"
+    },
+    {
+        "message_id": 4,
+        "email": "user4@example.com",
+        "customer_name": "UserName4",
+        "customer_surname": "UserSurname4",
+        "message": "When does my order comes?"
+    }
+
+]
