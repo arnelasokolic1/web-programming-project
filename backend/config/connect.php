@@ -4,7 +4,7 @@
 $servername = "localhost";
 $username = "root";
 $password = ""; 
-$database = "project_web";
+$database = "projectweb";
 
 // Data source name (DSN)
 $dsn = "mysql:host=$servername;dbname=$database";
