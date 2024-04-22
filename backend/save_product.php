@@ -30,5 +30,7 @@ $stmt->execute();
 // Close the connection
 $conn = null;
 
-
+// Redirect back to admin/products.html
+header("Location: ../admin/products.html");
+exit; // Ensure no further code is executed after redirection
 ?>
