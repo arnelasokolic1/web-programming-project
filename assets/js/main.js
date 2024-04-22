@@ -12,23 +12,18 @@ $(document).ready(function() {
                     { "data": "id" },
                     { "data": "name" },
                     { "data": "email" },
-                    
+                    { "data": "password" }, // Include the password column
                     { "defaultContent": "<button class='delete-btn'>Delete</button>" }
                 ]
             });
         });
     }
 
-    // Call the function to populate admin table when the document is ready
+    // Call the function to populate the admin table when the document is ready
     populateAdminTable();
 
     // Initialize DataTables for other tables
-    $('#product-table').DataTable();
-    $('#messages-table').DataTable();
-    $('#sales-table').DataTable();
-    $('#customers-table').DataTable();
-
-    // Other event handlers and functions can go here...
+    // Assuming you have other DataTables initialized here
 });
 
 

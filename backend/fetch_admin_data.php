@@ -14,7 +14,7 @@ if ($conn->connect_error) {
 }
 
 // Fetch admin data from the database
-$sql = "SELECT * FROM Admin";
+$sql = "SELECT id, name, email, password FROM Admin"; // Include the password column
 $result = $conn->query($sql);
 
 if (!$result) {
