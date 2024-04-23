@@ -11,8 +11,6 @@ $(document).ready(function() {
                 "columns": [
                     { "data": "id" },
                     { "data": "name" },
-                    { "data": "email" },
-                    { "data": "password" }, // Include the password column
                     { "defaultContent": "<button class='delete-btn'>Delete</button>" }
                 ]
             });
@@ -25,5 +23,3 @@ $(document).ready(function() {
     // Initialize DataTables for other tables
     // Assuming you have other DataTables initialized here
 });
-
-

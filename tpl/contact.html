@@ -58,25 +58,20 @@
     </div>
 
     <div class="mx-auto container">
-        <form id="contact-form" action="../backend/save_contact.php" method="POST">
+        <form id="contact-form" action="../backend/submit_message.php" method="POST">
             <div class="form-group mb-4">
                 <label>Email</label>
                 <input type="email" class="form-control" id="contact-email" name="email" placeholder="Email" required/>
             </div>
 
             <div class="form-group mb-4">
-                <label>Name</label>
-                <input type="text" class="form-control" id="contact-name" name="name" placeholder="Name" required/>
-            </div>
-
-            <div class="form-group mb-4">
-                <label>Surname</label>
-                <input type="text" class="form-control" id="contact-surname" name="surname" placeholder="Surname" required/>
-            </div>
-
-            <div class="form-group mb-4">
                 <label>Message</label>
                 <textarea class="form-control" id="contact-message" name="message" rows="5" placeholder="Message" required></textarea>
+            </div>
+
+            <div class="form-group mb-4">
+                <label>Customer Name</label>
+                <input type="text" class="form-control" id="contact-customer-name" name="customer_name" placeholder="Customer Name" required/>
             </div>
 
             <div class="form-group">
@@ -97,28 +92,10 @@
 
         // Getting form values
         var email = document.getElementById("contact-email").value;
-        var name = document.getElementById("contact-name").value;
-        var surname = document.getElementById("contact-surname").value;
         var message = document.getElementById("contact-message").value;
+        var customerName = document.getElementById("contact-customer-name").value;
 
-        // Validation for email format
-        var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!emailRegex.test(email)) {
-            alert("Please enter a valid email address.");
-            return;
-        }
-
-        // Validation for name and surname required
-        if (!name.trim() || !surname.trim()) {
-            alert("Name and surname are required fields.");
-            return;
-        }
-
-        // Validation for message length
-        if (message.length < 5) {
-            alert("Message must be at least 5 characters long.");
-            return;
-        }
+        // Validation and submission code here
 
         // Show custom notification
         var notification = document.getElementById("custom-notification");
@@ -134,3 +111,4 @@
 
 </body>
 </html>
+

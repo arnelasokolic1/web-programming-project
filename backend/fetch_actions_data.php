@@ -1,9 +1,9 @@
 <?php
-// Database connection parameters
+// Database configuration
 $servername = "localhost";
-$username = "root"; 
-$password = ""; 
-$database = "projectweb"; 
+$username = "root";
+$password = "";
+$database = "projectweb";
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $database);
@@ -13,25 +13,27 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-// Query to select all data from the Customers table
-$sql = "SELECT * FROM Customers";
-
+// Fetch data from Actions table
+$sql = "SELECT action_id, product_name, discount FROM Actions";
 $result = $conn->query($sql);
+
+// Prepare array to store fetched data
+$data = array();
 
 // Check if there are rows returned
 if ($result->num_rows > 0) {
-    // Fetch rows and store them in an array
-    $data = array();
+    // Fetch each row and add it to the data array
     while ($row = $result->fetch_assoc()) {
         $data[] = $row;
     }
-
-    // Encode the array as JSON and output it
-    echo json_encode($data);
-} else {
-    echo "0 results";
 }
 
 // Close connection
 $conn->close();
+
+// Set response header to JSON
+header('Content-Type: application/json');
+
+// Output the data array as JSON
+echo json_encode($data);
 ?>

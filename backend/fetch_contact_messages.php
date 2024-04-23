@@ -1,7 +1,8 @@
 <?php
+
 // Database connection parameters
 $servername = "localhost";
-$username = "root"; 
+$username = "root";
 $password = ""; 
 $database = "projectweb"; 
 
@@ -13,25 +14,23 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-// Query to select all data from the Customers table
-$sql = "SELECT * FROM Customers";
+
+
+// Query to fetch data from the ContactMessages table
+$sql = "SELECT * FROM ContactMessages";
 
 $result = $conn->query($sql);
 
-// Check if there are rows returned
 if ($result->num_rows > 0) {
-    // Fetch rows and store them in an array
     $data = array();
     while ($row = $result->fetch_assoc()) {
         $data[] = $row;
     }
-
-    // Encode the array as JSON and output it
+    // Return data as JSON
     echo json_encode($data);
 } else {
-    echo "0 results";
+    echo json_encode(array()); // Return empty array if no data found
 }
 
-// Close connection
 $conn->close();
 ?>

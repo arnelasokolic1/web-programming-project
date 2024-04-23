@@ -15,7 +15,7 @@ if ($conn->connect_error) {
 // Retrieve the data sent from the HTML form
 $name = $_POST['name'];
 $email = $_POST['email'];
-$password = $_POST['password']; // Assuming your form field is named 'password'
+$password = $_POST['password']; 
 
 // Prepare and execute an SQL statement to insert the data into the database
 $sql = "INSERT INTO Customers (name, email, password) VALUES ('$name', '$email', '$password')";

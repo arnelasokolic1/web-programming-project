@@ -14,8 +14,8 @@
     require_once 'backend/config/connect.php';
     
     try {
-        // Sample SQL query to select data from an existing table (e.g., Admin)
-        $sql = "SELECT * FROM Admin"; // Replace 'Admin' with the actual table name
+        
+        $sql = "SELECT * FROM Admin"; 
         $stmt = $conn->query($sql);
         $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
         
@@ -23,7 +23,7 @@
         var_dump($rows);
         
     } catch(PDOException $e) {
-        // If an exception occurs, it will be caught here
+        
         echo "<p style='color: red;'>Connection failed: " . $e->getMessage() . "</p>";
     }
     ?>

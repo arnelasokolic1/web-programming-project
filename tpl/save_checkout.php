@@ -60,13 +60,13 @@ try {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Order Status</title>
-    <!-- Add any CSS or Bootstrap links here -->
+   
 </head>
 <body>
     <div class="container">
         <?php if (isset($success_message)) : ?>
             <h1><?php echo $success_message; ?></h1>
-            <!-- You can add additional content or a link to redirect the user to another page -->
+            
         <?php else : ?>
             <h1>Error</h1>
             <p><?php echo $error_message; ?></p>

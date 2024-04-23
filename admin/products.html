@@ -81,30 +81,31 @@
 
 
         .delete-btn {
-            background-color: #ff0000;
-            border: none;
-            color: #ffffff;
-            padding: 8px 12px;
-            border-radius: 5px;
-            transition: background-color 0.3s ease;
-        }
+        background-color: #ff0000;
+        border: none;
+        color: #ffffff;
+        padding: 8px 12px;
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+    }
 
-        .delete-btn:hover {
-            background-color: #cc0000;
-        }
+    .delete-btn:hover {
+        background-color: #cc0000;
+    }
 
-        .edit-btn {
-            background-color: #007bff;
-            border: none;
-            color: #ffffff;
-            padding: 8px 12px;
-            border-radius: 5px;
-            transition: background-color 0.3s ease;
-        }
+    .edit-btn {
+        background-color: #007bff;
+        border: none;
+        color: #ffffff;
+        padding: 8px 12px;
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+    }
 
-        .edit-btn:hover {
-            background-color: #0056b3;
-        }
+    .edit-btn:hover {
+        background-color: #0056b3;
+    }
+    </style>
     </style>
 </head>
 <body>
@@ -126,6 +127,12 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="products.html">Products</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="admintable.html">Admin Table</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="actions.html">Actions Table</a>
                 </li>
             </ul>
         </div>
@@ -215,25 +222,13 @@
         // Adding click event listener to delete buttons
         $('#product-table').on('click', '.delete-btn', function() {
             var row = $(this).closest('tr');
-            var productId = row.find('td:eq(0)').text(); 
             var productName = row.find('td:eq(1)').text(); 
             var confirmation = confirm("Are you sure you want to delete '" + productName + "'?");
             if (confirmation) {
-                // Send an AJAX request to delete the product from the database
-                $.ajax({
-                    url: '../backend/delete_product.php',
-                    type: 'POST',
-                    data: { product_id: productId },
-                    success: function(response) {
-                        // Remove the row from the table if deletion was successful
-                        row.remove();
-                        alert("Product '" + productName + "' successfully deleted.");
-                    },
-                    error: function(xhr, status, error) {
-                        console.error(error);
-                        alert("Error deleting product '" + productName + "'.");
-                    }
-                });
+                // Delete product from the database (you need to implement this)
+                alert("Product '" + productName + "' successfully deleted.");
+                // Remove row from the table
+                row.remove();
             }
         });
 
@@ -254,29 +249,13 @@
             row.find('td:eq(2)').text(newProductDescription);
             row.find('td:eq(3)').text(newProductPrice);
 
-            // Send an AJAX request to update the product information in the database
-            $.ajax({
-                url: '../backend/edit_product.php',
-                type: 'POST',
-                data: { 
-                    product_id: productId,
-                    name: newProductName,
-                    description: newProductDescription,
-                    price: newProductPrice
-                },
-                success: function(response) {
-                    alert("Product '" + productName + "' successfully updated.");
-                },
-                error: function(xhr, status, error) {
-                    console.error(error);
-                    alert("Error updating product '" + productName + "'.");
-                }
-            });
+            
+            alert("Product '" + productName + "' successfully updated.");
         });
 
-        // Adding click event listener to add button
+       
         $('#add-product-btn').on('click', function() {
-            // Add your add functionality here
+           
             alert("Add new product.");
         });
     });

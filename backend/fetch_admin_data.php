@@ -14,7 +14,7 @@ if ($conn->connect_error) {
 }
 
 // Fetch admin data from the database
-$sql = "SELECT id, name, email, password FROM Admin"; // Include the password column
+$sql = "SELECT id, name FROM Admin"; // Exclude the email field
 $result = $conn->query($sql);
 
 if (!$result) {
@@ -35,3 +35,4 @@ $conn->close();
 header('Content-Type: application/json');
 echo json_encode($adminData);
 ?>
+
