@@ -92,6 +92,19 @@
     .delete-btn:hover {
         background-color: #cc0000;
     }
+
+    .edit-btn {
+        background-color: #007bff;
+        border: none;
+        color: #ffffff;
+        padding: 8px 12px;
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+    }
+
+    .edit-btn:hover {
+        background-color: #0056b3;
+    }
     </style>
     </style>
 </head>
@@ -115,45 +128,36 @@
                 <li class="nav-item">
                     <a class="nav-link" href="products.html">Products</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="admintable.html">Admin Table</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="actions.html">Actions Table</a>
+                </li>
             </ul>
         </div>
     </div>
 </nav>
 
 <!-- Add Product Form -->
-<section class="my-5 py-5">
-    <div class="container text-center mt-3 pt-5">
-        <h2 class="form-weight-bold">ADD PRODUCT</h2>
-        <hr class="mx-auto">
+<form id="add-product-form" action="../backend/save_product.php" method="POST" enctype="multipart/form-data">
+    <div class="form-group">
+        <label for="product-name">Product Name</label>
+        <input type="text" class="form-control" id="product-name" name="product-name" required>
     </div>
+    <div class="form-group">
+        <label for="product-price">Price</label>
+        <input type="text" class="form-control" id="product-price" name="product-price" required>
+    </div>
+    <div class="form-group">
+        <label for="product-description">Description</label>
+        <textarea class="form-control" id="product-description" name="product-description" rows="3"></textarea>
+    </div>
+    
+    <button type="submit" class="btn btn-primary add-product-btn">Add Product</button>
+    <p id="add-product-message" style="margin-top: 10px;"></p>
+</form>
 
-    <div class="mx-auto container">
-        <form id="add-product-form">
-            <div class="form-group">
-                <label for="product-name">Product Name</label>
-                <input type="text" class="form-control" id="product-name" name="product-name" required>
-            </div>
-            <div class="form-group">
-                <label for="product-price">Price</label>
-                <input type="text" class="form-control" id="product-price" name="product-price" required>
-            </div>
-            <div class="form-group">
-                <label for="product-description">Description</label>
-                <textarea class="form-control" id="product-description" name="product-description" rows="3"></textarea>
-            </div>
-            <div class="form-group">
-                <label for="product-ingredients">Ingredients</label>
-                <textarea class="form-control" id="product-ingredients" name="product-ingredients" rows="3"></textarea>
-            </div>
-            <div class="form-group">
-                <label for="product-image">Product Image</label>
-                <input type="file" class="form-control" id="product-image" name="product-image">
-            </div>
-            <button type="submit" class="btn btn-primary add-product-btn">Add Product</button>
-            <p id="add-product-message" style="margin-top: 10px;"></p>
-        </form>
-    </div>
-</section>
 
 <!-- Product Table -->
 <section class="my-5 py-5">
@@ -192,7 +196,7 @@
     $(document).ready(function() {
         // Function to fetch and populate products data
         function populateProductTable() {
-            $.getJSON('../database/all_perfumes.json', function(data) {
+            $.getJSON('../backend/fetch_products.php', function(data) {
                 var productTable = $('#product-table');
                 if ($.fn.DataTable.isDataTable(productTable)) {
                     productTable.DataTable().destroy(); // Destroy existing DataTable instance
@@ -200,13 +204,13 @@
                 productTable.DataTable({
                     "data": data,
                     "columns": [
-                        { "data": "id" },
+                        { "data": "product_id" },
                         { "data": "name" },
                         { "data": "description" },
                         { "data": "price" },
                         { 
                             "data": null,
-                            "defaultContent": "<button class='delete-btn'>Delete</button>"
+                            "defaultContent": "<button class='edit-btn'>Edit</button> <button class='delete-btn'>Delete</button>"
                         }
                     ]
                 });
@@ -221,15 +225,41 @@
             var productName = row.find('td:eq(1)').text(); 
             var confirmation = confirm("Are you sure you want to delete '" + productName + "'?");
             if (confirmation) {
-                
+                // Delete product from the database (you need to implement this)
                 alert("Product '" + productName + "' successfully deleted.");
-                
+                // Remove row from the table
+                row.remove();
             }
+        });
+
+        // Adding click event listener to edit buttons
+        $('#product-table').on('click', '.edit-btn', function() {
+            var row = $(this).closest('tr');
+            var productId = row.find('td:eq(0)').text();
+            var productName = row.find('td:eq(1)').text(); 
+            var productDescription = row.find('td:eq(2)').text();
+            var productPrice = row.find('td:eq(3)').text();
+
+            var newProductName = prompt("Enter new name for '" + productName + "':", productName);
+            var newProductDescription = prompt("Enter new description for '" + productName + "':", productDescription);
+            var newProductPrice = prompt("Enter new price for '" + productName + "':", productPrice);
+
+            // Update the table
+            row.find('td:eq(1)').text(newProductName);
+            row.find('td:eq(2)').text(newProductDescription);
+            row.find('td:eq(3)').text(newProductPrice);
+
+            
+            alert("Product '" + productName + "' successfully updated.");
+        });
+
+       
+        $('#add-product-btn').on('click', function() {
+           
+            alert("Add new product.");
         });
     });
 </script>
-
-
 
 </body>
 </html>

@@ -1,21 +1,25 @@
-//5 TABLES//
+$(document).ready(function() {
+    // Function to fetch and populate admin data
+    function populateAdminTable() {
+        $.getJSON('../backend/fetch_admin_data.php', function(data) {
+            var adminTable = $('#admin-table');
+            if ($.fn.DataTable.isDataTable(adminTable)) {
+                adminTable.DataTable().destroy(); // Destroy existing DataTable instance
+            }
+            adminTable.DataTable({
+                "data": data,
+                "columns": [
+                    { "data": "id" },
+                    { "data": "name" },
+                    { "defaultContent": "<button class='delete-btn'>Delete</button>" }
+                ]
+            });
+        });
+    }
 
-$(document).ready( function () {
-    $('#product-table').DataTable();
-} );
+    // Call the function to populate the admin table when the document is ready
+    populateAdminTable();
 
-$(document).ready( function () {
-    $('#messages-table').DataTable();
-} );
-
-$(document).ready( function () {
-    $('#sales-table').DataTable();
-} );
-
-$(document).ready( function () {
-    $('#admin-table').DataTable();
-} );
-
-$(document).ready( function () {
-    $('#customers-table').DataTable();
-} );
+    // Initialize DataTables for other tables
+    // Assuming you have other DataTables initialized here
+});

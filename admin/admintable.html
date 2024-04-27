@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="../assets/css/dataTables.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <style>
+        /* Navbar and Table styles */
+        .navbar {
+            background-color: #000000;
+            border-radius: 0;
+        }
+
+        .navbar-brand,
+        .navbar-nav .nav-link {
+            color: #ffffff;
+        }
+
+        .navbar-brand:hover,
+        .navbar-nav .nav-link:hover {
+            color: #c7c7c7;
+        }
+
+        table {
+            width: 100%;
+            margin: 50px auto;
+            padding: 20px;
+            border: 5px solid #000000; 
+            border-radius: 19px; 
+            background-color: #ffffff; 
+            box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.1); 
+        }
+
+        th, td {
+            padding: 8px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+            color: #333;
+        }
+
+        /* Button styles */
+        .delete-btn, .btn-danger {
+            background-color: #ff0000;
+            border: none;
+            color: #ffffff;
+            padding: 8px 12px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .edit-btn {
+            background-color: #007bff; /* Blue color */
+            border: none;
+            color: #ffffff;
+            padding: 8px 12px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .add-btn {
+            background-color: #28a745; /* Green color */
+            border: none;
+            color: #ffffff;
+            padding: 8px 12px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .delete-btn:hover, .btn-danger:hover {
+            background-color: #cc0000;
+        }
+
+        .edit-btn:hover {
+            background-color: #0056b3; /* Darker blue color */
+        }
+
+        .add-btn:hover {
+            background-color: #218838; /* Darker green color */
+        }
+    </style>
+</head>
+<body>
+<!-- Navbar -->
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+        <a class="navbar-brand" href="#">Admin Dashboard</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="dashboard.html">Dashboard</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="account.html">Account</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="products.html">Products</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="admintable.html">Admin Table</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="actions.html">Actions Table</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<!-- Admins Table -->
+<section class="my-5 py-5">
+    <div class="container text-center mt-3 pt-5">
+        <h2 class="form-weight-bold">ADMINS</h2>
+        <hr class="mx-auto">
+    </div>
+    <table id="admins-table" class="display">
+        <thead>
+            <tr>
+                <th>Admin ID</th>
+                <th>Name</th>
+                <th>Action</th> <!-- Add action column -->
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+</section>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="../assets/js/dataTables.js"></script>
+<script src="../assets/js/main.js"></script>
+<script>
+    // Function to fetch and populate admins data
+    function populateAdminsTable() {
+        $.getJSON('../backend/fetch_admin_data.php', function(data) {
+            var adminsTable = $('#admins-table');
+            if ($.fn.DataTable.isDataTable(adminsTable)) {
+                adminsTable.DataTable().destroy(); // Destroy existing DataTable instance
+            }
+            adminsTable.DataTable({
+                "data": data,
+                "columns": [
+                    { "data": "id" }, // Use "id" instead of "admin_id"
+                    { "data": "name" },
+                    { "defaultContent": "<button class='delete-btn'>Delete</button> <button class='edit-btn'>Edit</button> <button class='add-btn'>Add</button>" } // Add buttons
+                ]
+            });
+        });
+    }
+
+    // Call the function to populate admins table when the document is ready
+    $(document).ready(function() {
+        populateAdminsTable();
+    });
+
+    // Add event listener to delete buttons
+    $('#admins-table').on('click', '.delete-btn', function() {
+        if (confirm('Are you sure you want to delete this admin?')) {
+            var adminId = $(this).closest('tr').find('td:first').text(); // Get admin ID
+            // Send AJAX request to delete admin from database
+            $.ajax({
+                url: '../backend/delete_admin.php',
+                method: 'POST',
+                data: { adminId: adminId },
+                success: function(response) {
+                    // Remove row from table if deletion successful
+                    if (response.success) {
+                        $(this).closest('tr').remove();
+                    } else {
+                        alert('Failed to delete admin.');
+                    }
+                }
+            });
+        }
+    });
+
+    // Add event listener to edit buttons
+    $('#admins-table').on('click', '.edit-btn', function() {
+        var row = $(this).closest('tr');
+        var adminId = row.find('td:eq(0)').text(); // Get admin ID
+        var name = row.find('td:eq(1)').text();
+
+        var newName = prompt('Enter new name for ' + name + ':', name);
+
+        if (newName !== null) {
+            // Send AJAX request to update admin in database
+            $.ajax({
+                url: '../backend/update_admin.php',
+                method: 'POST',
+                data: { adminId: adminId, name: newName },
+                success: function(response) {
+                    if (response.success) {
+                        // Update table cell values
+                        row.find('td:eq(1)').text(newName);
+                    } else {
+                        alert('Failed to update admin.');
+                    }
+                }
+            });
+        }
+    });
+
+    // Add event listener to add buttons
+    $('#admins-table').on('click', '.add-btn', function() {
+        var name = prompt('Enter name for the new admin:');
+
+        if (name !== null) {
+            // Send AJAX request to add admin to database
+            $.ajax({
+                url: '../backend/add_admin.php',
+                method: 'POST',
+                data: { name: name },
+                success: function(response) {
+                    // Append new row to table with new admin data
+                    if (response.success) {
+                        // Append new row to table
+                        var newRow = '<tr><td>' + response.admin_id + '</td><td>' + name + '</td><td><button class="delete-btn">Delete</button> <button class="edit-btn">Edit</button> <button class="add-btn">Add</button></td></tr>';
+                        $('#admins-table tbody').append(newRow);
+                    } else {
+                        alert('Failed to add admin.');
+                    }
+                }
+            });
+        }
+    });
+
+</script>
+</body>
+</html>
