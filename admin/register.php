@@ -36,13 +36,14 @@ try {
         // Execute the statement
         $stmt->execute();
 
-        // Optionally, you can redirect the user to a success page
-        header("Location: dashboard.html");
+       
+        header("Location: account.html");
         exit();
     }
 } catch(PDOException $e) {
     // Handle connection errors
     echo "Connection failed: " . $e->getMessage();
-    throw $e; // Optionally, you can rethrow the exception
+    throw $e; 
 }
 ?>
+

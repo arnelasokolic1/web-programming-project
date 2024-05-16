@@ -20,13 +20,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $product_name = $_POST['product_name'];
         $discount = $_POST['discount'];
 
-        // Prepare an SQL statement to insert a new action into the database
         $sql = "INSERT INTO Actions (product_name, discount) VALUES (?, ?)";
 
         // Prepare the statement
         $stmt = $conn->prepare($sql);
-
-        // Bind parameters to the statement
         $stmt->bind_param("sd", $product_name, $discount);
 
         // Execute the statement
