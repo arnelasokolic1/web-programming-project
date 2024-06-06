@@ -29,3 +29,34 @@ This milestone marks the integration of database functionality into the project:
 - Created tables in DBeaver and connected them with the project.
 - Implemented functionalities for the admin to add, delete, and edit users, with changes automatically reflected in the database.
 - Implemented form submission functionality, with submitted form data stored directly in the database for future reference and processing.
+
+## Screenshots
+
+<div align="center">
+  <img src="SLIKA3.png" width="800" hspace="10">
+</div>
+<br>
+<div align="center">
+  <img src="SLIKA4.png" width="800" hspace="10">
+</div>
+<br>
+<div align="center">
+  <img src="SLIKA5.png" width="800" hspace="10">
+</div>
+<br>
+<div align="center">
+  <img src="SLIKA2.png" width="800" hspace="10">
+</div>
+<br>
+<div align="center">
+  <img src="SLIKA1.png" width="800" hspace="10">
+</div>
+<br>
+<div align="center">
+  <img src="SLIKA6.png" width="800" hspace="10">
+</div>
+<br>
+<div align="center">
+  <img src="SLIKA7.png" width="800" hspace="10">
+</div>
+
